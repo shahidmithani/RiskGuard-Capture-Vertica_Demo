@@ -96,7 +96,7 @@ function App() {
       return
     }
 
-    if(file.type != "application/pdf") {
+    if(file.type !== "application/pdf") {
       alert("Please upload a PDF document to test PII with Risk Guard")
       return
     }
@@ -196,7 +196,7 @@ function App() {
       return
     }
   
-    if(captureFile.type != "image/tiff") {
+    if(captureFile.type !== "image/tiff") {
       alert("Please upload a document image (TIF) to test Information Extraction with Capture Service")
       return
     }
