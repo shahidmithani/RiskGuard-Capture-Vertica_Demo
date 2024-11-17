@@ -107,7 +107,9 @@ function App() {
     formData.append('File', file, file.name);
 
     let options = {
-      url: `${properties.base_url}/mtm-riskguard/api/v1/process`,
+      //Insert process request URL from Risk Guard Service
+      url: ``,
+      
       method: 'POST',
       headers: { 
         'Authorization': `Bearer ${accessToken}`, 
@@ -201,7 +203,8 @@ function App() {
 
     setCapFileIdPlaceholder("Processing...")
     
-    const url = `${properties.base_url}/capture/cp-rest/v2/session/files`
+    //insert create stage file request URL from Capture Service
+    const url = ``
     
     const fetchOptions = {
       method: "POST",
@@ -238,7 +241,9 @@ function App() {
     const fileName = captureFile.name.substring(0, captureFile.name.lastIndexOf('.')) || captureFile.name
     const fileExt  = captureFile.name.substring(captureFile.name.lastIndexOf('.')+1) || ''
 
-    const url = `${properties.base_url}/capture/cp-rest/v2/session/services/classifyextractpage`
+    //insert classify-extract page request URL from Capture Service
+    const url = ``
+    
     const fetchOptions = {
       method: "POST",
       headers: {
