@@ -126,11 +126,7 @@ function App() {
 
         setRetrieveStatus("..."+response.data.header.status.description)
 
-        //Use this line in US GCP
         setTMEResults(response.data.results.tme.result.results.nfinder[0].nfExtract[0].extractedTerm)
-
-        //Use this line in NA B&T
-        //setTMEResults(response.data.results.tme.result.Results.nfinder[0].nfExtract[0].ExtractedTerm)
       })
       .catch(error => {
         if (error.response.status === 401) {
@@ -155,7 +151,6 @@ function App() {
     else {
       let pii = ""
 
-      //Use this code block  in US GCP
       setPiiData(tmeResults.map(extractedTerm => {
         if (extractedTerm.mainTerm)
           pii += `${extractedTerm.cartridgeID} = ${extractedTerm.mainTerm.value}\n`
@@ -164,13 +159,6 @@ function App() {
         else if (extractedTerm.clientNormalized)
           pii += `${extractedTerm.cartridgeID} = ${extractedTerm.clientNormalized}\n`          
       }))
-
-      //Use this code block in NA B&T
-      /*
-      setPiiData(tmeResults.map(extractedTerm => {
-        pii += `${extractedTerm.CartridgeID} = ${extractedTerm.Subterms.Subterm[0].value}\n`
-      }))
-      */
 
       setPiiData(pii)
     }
